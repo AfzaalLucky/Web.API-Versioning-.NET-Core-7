@@ -6,9 +6,9 @@
 
 ## Required Packages for API Versioning
 
-PM**>** Install-Package Asp.Versioning.Mvc
+PM> Install-Package Asp.Versioning.Mvc
 
-PM**>** Install-Package Asp.Versioning.Mvc.ApiExplorer
+PM> Install-Package Asp.Versioning.Mvc.ApiExplorer
 
 
 
