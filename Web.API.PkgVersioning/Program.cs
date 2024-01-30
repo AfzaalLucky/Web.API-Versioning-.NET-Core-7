@@ -12,7 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-// Inject Version
+// Inject API Version
 var apiVersioningBuilder = builder.Services.AddApiVersioning(o =>
 {
     o.AssumeDefaultVersionWhenUnspecified = true;
@@ -32,16 +32,19 @@ apiVersioningBuilder.AddApiExplorer(
     });
 
 builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
-
+// End API Version
 var app = builder.Build();
 
+// Inject API Version
 var versionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+// End API Version
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     //app.UseSwaggerUI();
+    // Inject API Version
     app.UseSwaggerUI(options =>
     {
         foreach (var description in versionDescriptionProvider.ApiVersionDescriptions)
@@ -49,6 +52,7 @@ if (app.Environment.IsDevelopment())
             options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
         }
     });
+    // End API Version
 }
 
 app.UseHttpsRedirection();
