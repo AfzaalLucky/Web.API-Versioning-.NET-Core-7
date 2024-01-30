@@ -17,6 +17,7 @@ namespace Web.API_Versioning
                 new {Id =8, Name = "United Arab Emirates"},
                 new {Id =9, Name = "Indiana"},
                 new {Id =10, Name = "Bahrain"},
+                new {Id =11, Name = "China"},
             };
 
             return countries.Select(c => new Country { Id = c.Id, Name = c.Name }).ToList();
