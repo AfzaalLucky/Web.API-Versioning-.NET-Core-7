@@ -5,8 +5,8 @@ using Web.API.PkgVersioning.Models.DTOs;
 namespace Web.API.PkgVersioning.Controllers
 {
     [ApiController]
-    //[Route("api/v{version:apiVersion}/[controller]")]
-    [Route("[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    //[Route("[controller]")]
     [ApiVersion(1)]
     [ApiVersion(2)]
     public class CountriesController : ControllerBase
